@@ -1,0 +1,25 @@
+<div class="titulo">
+    <h2>Lista de Tipos</h2>
+</div>
+<table class="striped table">
+    <thead>
+        <tr>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tipo of tipos">
+            <td>{{ tipo.tipo }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="jumbotron jumbotron-fluid">
+    <button class="btn btn-primary" [routerLink]="['/cadastra-tipo']">
+        Cadastrar Tipo
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/home']">
+        Voltar
+    </button>
+
+</div>

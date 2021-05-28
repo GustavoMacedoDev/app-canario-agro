@@ -1,0 +1,30 @@
+<div class="titulo">
+    <h2>Lista de Lotes</h2>
+</div>
+
+<table class="striped table">
+    <thead>
+        <tr>
+            <th>Lote</th>
+            <th>Data de Fabricação</th>
+            <th>Data de Validade</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lote of lotes">
+            <td>{{ lote?.lote }}</td>
+            <td>{{ lote?.dataFabricacao | date:'dd/MM/yyyy' }}</td>
+            <td>{{ lote?.dataValidade | date:'dd/MM/yyyy' }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="jumbotron jumbotron-fluid">
+    <button class="btn btn-primary" [routerLink]="['/cadastra-lote']">
+        Cadastrar Lote
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/home']">
+        Voltar
+    </button>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="titulo">
+    <h2>Lista de Aplicações</h2>
+</div>
+<table class="striped table">
+    <thead>
+        <tr>
+            <th>Animal</th>
+            <th>Data de Aplicação</th>
+            <th>Medicamento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let aplicacao of aplicacoes">
+            <td>{{ aplicacao?.animal.nome }}</td>
+            <td>{{ aplicacao?.dataAplicacao | date:'dd/MM/yyyy'}}</td>
+            <td>{{ aplicacao?.medicamento.nome }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="jumbotron jumbotron-fluid">
+    <button class="btn btn-primary" [routerLink]="['/cadastra-aplicacao']">
+        Cadastrar Aplicação
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/home']">
+        Voltar
+    </button>
+
+</div>

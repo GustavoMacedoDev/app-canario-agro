@@ -1,0 +1,33 @@
+<div class="titulo">
+    <h2>Lista de Animais</h2>
+</div>
+<table class="striped table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Raça</th>
+            <th>Sexo</th>
+            <th>Data de Nascimento</th>
+            <th>Produtor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let animal of animais">
+            <td>{{ animal?.nome }}</td>
+            <td>{{ animal?.raca.nome }}</td>
+            <td>{{ animal?.sexo }}</td>
+            <td>{{ animal?.dataNascimento | date:'dd/MM/yyyy' }}</td>
+            <td>{{ animal?.produtor.nome }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="jumbotron jumbotron-fluid">
+    <button class="btn btn-primary" [routerLink]="['/cadastra-animal']">
+        Cadastrar Animal
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/home']">
+        Voltar
+    </button>
+
+</div>

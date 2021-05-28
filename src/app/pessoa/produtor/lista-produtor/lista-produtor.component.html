@@ -1,0 +1,28 @@
+<div class="titulo">
+    <h2>Lista de Produtores</h2>
+</div>
+
+<table class="striped table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Razão Social</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let produtor of produtores">
+            <td>{{ produtor.nome }}</td>
+            <td>{{ produtor.razaoSocial }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="jumbotron jumbotron-fluid">
+    <button class="btn btn-primary" [routerLink]="['/cadastra-produtor']">
+        Cadastrar Produtor
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/home']">
+        Voltar
+    </button>
+
+</div>

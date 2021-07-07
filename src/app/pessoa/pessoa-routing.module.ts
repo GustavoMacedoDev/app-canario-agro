@@ -1,26 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CadastraFornecedorComponent } from './fornecedor/cadastra-fornecedor/cadastra-fornecedor.component';
-import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor/lista-fornecedor.component';
-import { CadastraProdutorComponent } from './produtor/cadastra-produtor/cadastra-produtor.component';
-import { ListaProdutorComponent } from './produtor/lista-produtor/lista-produtor.component';
+import { HomePessoaComponent } from './home-pessoa/home-pessoa.component';
+import { CadastraPessoaComponent } from './pessoas/cadastra-pessoa/cadastra-pessoa.component';
+import { ListaPessoaComponent } from './pessoas/lista-pessoa/lista-pessoa.component';
 
 export const PessoaRoutes: Routes = [
+ 
   {
-    path: 'cadastra-produtor',
-    component: CadastraProdutorComponent
+    path: 'home-pessoa',
+    component: HomePessoaComponent
   },
   {
-    path: 'lista-produtor',
-    component: ListaProdutorComponent
+    path: 'cadastra-pessoa',
+    component: CadastraPessoaComponent
   },
   {
-    path: 'lista-fornecedor',
-    component: ListaFornecedorComponent
-  },
-  {
-    path: 'cadastra-fornecedor',
-    component: CadastraFornecedorComponent
+    path: 'lista-pessoa',
+    component: ListaPessoaComponent
   }
 	
 ];

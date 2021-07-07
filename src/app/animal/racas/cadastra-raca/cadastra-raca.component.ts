@@ -43,8 +43,8 @@ export class CadastraRacaComponent implements OnInit {
       .subscribe(
         data => {
           const msg: string = "Raça cadastrada com sucesso";
-          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
-          this.router.navigate(['/home']);
+          this.snackBar.open(msg, "Sucesso", { duration: 3000 });
+          this.router.navigate(['/lista-raca']);
         },
         err => {
           let msg: string = "Tente novamente em instantes.";

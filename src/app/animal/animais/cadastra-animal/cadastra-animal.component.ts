@@ -4,13 +4,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Animal } from 'src/app/shared/models/animal.model';
 import { Categoria } from 'src/app/shared/models/categoria.model';
-import { Fornecedor } from 'src/app/shared/models/fornecedor.model';
-import { Produtor } from 'src/app/shared/models/produtor.model';
+import { Pessoa } from 'src/app/shared/models/pessoa.model';
 import { Raca } from 'src/app/shared/models/raca.model';
 import { AnimalService } from 'src/app/shared/services/animal.service';
 import { CategoriaService } from 'src/app/shared/services/categoria.service';
-import { FornecedorService } from 'src/app/shared/services/fornecedor.service';
-import { ProdutorService } from 'src/app/shared/services/produtor.service';
+import { PessoaService } from 'src/app/shared/services/pessoa.service';
 import { RacaService } from 'src/app/shared/services/raca.service';
 
 @Component({
@@ -21,16 +19,15 @@ import { RacaService } from 'src/app/shared/services/raca.service';
 export class CadastraAnimalComponent implements OnInit {
 
   form: FormGroup;
-  produtores: Produtor[];
-  fornecedores: Fornecedor[];
+  produtores: Pessoa[];
+  fornecedores: Pessoa[];
   racas: Raca[];
   categorias: Categoria[];
   
   constructor(
               private fb: FormBuilder,
               private animalService: AnimalService,
-              private produtorService: ProdutorService,
-              private fornecedorService: FornecedorService,
+              private pessoaService: PessoaService,
               private racaService: RacaService,
               private categoriaService: CategoriaService,
               private snackBar: MatSnackBar,
@@ -39,17 +36,17 @@ export class CadastraAnimalComponent implements OnInit {
 
   ngOnInit(): void {
     this.gerarForm();
-    this.produtorService.listaProdutores().subscribe(res => this.produtores = res);
-    this.fornecedorService.listaFornecedor().subscribe(res => this.fornecedores = res);
+    this.pessoaService.listaPessoas().subscribe(res => this.produtores = res);
+    this.pessoaService.listaPessoas().subscribe(res => this.fornecedores = res);
     this.racaService.listaRacas().subscribe(res => this.racas = res);
     this.categoriaService.listaCategorias().subscribe(res => this.categorias = res);
   }
 
   gerarForm() {
     this.form = this.fb.group({
-  		nome: ['', ],
-  		dataNascimento: ['', [Validators.required]],
-      pesoNascimento:['', [Validators.required]],
+  		nome: ['', Validators.required],
+  		dataEntrada: ['', [Validators.required]],
+      pesoEntrada:['', [Validators.required]],
       identificacao:['', [Validators.required]],
       sexo:['', [Validators.required]],
       produtor: this.fb.control('', [Validators.required]),
@@ -71,8 +68,8 @@ export class CadastraAnimalComponent implements OnInit {
       .subscribe(
         data => {
           const msg: string = "Animal cadastrado com sucesso";
-          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
-          this.router.navigate(['/home']);
+          this.snackBar.open(msg, "Sucesso", { duration: 3000 });
+          this.router.navigate(['/lista-animal']);
         },
         err => {
           let msg: string = "Tente novamente em instantes.";

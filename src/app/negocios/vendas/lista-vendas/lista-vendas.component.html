@@ -1,0 +1,31 @@
+<div class="titulo">
+    <h2>Lista de Vendas</h2>
+</div>
+
+<table class="striped table">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Cliente</th>
+            <th>Valor Total</th>
+            <th>Ver</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let venda of vendas">
+            <td>{{ venda?.idVenda }}</td>
+            <td>{{ venda?.pessoa.nome }}</td>
+            <td>{{ venda?.totalVenda | currency: 'BRL': 'symbol' }}</td>
+            <td><a routerLink="{{ '/venda/ver/' + venda?.idVenda }}">
+                <i class="fa fa-edit"></i>Ver
+            </a> </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="jumbotron jumbotron-fluid">
+    <button class="btn btn-primary" [routerLink]="['/home-negocios']">
+        Voltar
+    </button>
+
+</div>

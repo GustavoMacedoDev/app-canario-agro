@@ -1,0 +1,58 @@
+
+<h4 class="text-center">Venda de Animais</h4>
+<div class="produtos">
+  <button *ngFor="let animal of animais" 
+        class="btnadd btn btn-primary" (click)="addItem(animal)">
+    {{ animal?.nome }}
+  </button>
+
+</div>
+
+<div class="box box-solid">
+    <div class="box-header">
+      <i class="fa fa-shopping-cart"></i>
+  
+      <h3 class="box-title">Lista de Animais</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+  
+      <div *ngIf="!items().length">
+        <p class="text-center">
+          Nenhum animal selecionado!
+        </p>
+      </div>
+      <div class="table-responsive" *ngIf="items().length">
+          <table class="table">
+              <thead>
+                  <th>Animal</th>
+                  <th>Peso(kg)</th>
+                  <th>Peso(@)</th>
+                  <th>Valor da Arroba</th>
+                  <th>Total por Animal</th>
+              </thead>
+            <tbody>
+            <tr *ngFor="let item of items()" [@row]="rowState">
+              <th>{{ item.animal.nome }}</th>
+              <th>{{ item.animal.pesoAtual }}</th>
+              <th>{{ item.animal.pesoAtual  / 15 }}</th>
+              <th>{{  arroba?.valor  | currency: 'BRL': 'symbol' }}</th>
+              <th>{{ arroba?.valor * (item.animal.pesoAtual / 15)  | currency: 'BRL': 'symbol' }}</th>
+            </tr>
+            
+          </tbody></table>
+        </div>
+        <tr>
+          <th>Total da Venda: </th>
+          <td class="text-right">   {{ total()  | currency: 'BRL': 'symbol'}}</td>
+        </tr>
+    </div>
+    <div class="box-footer" *ngIf="items().length">
+      <div class="pull-right">
+        <button (click)="clear()" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Limpar</button>
+        <a [routerLink]="['/fecha-venda']" class="btn btn-success"><i class="fa fa-credit-card"></i> Fechar Pedido</a>
+      </div>
+    </div>
+  </div>
+
+ <!-- <h3> Valor da Arroba: {{ arroba?.valor  | currency: 'BRL': 'symbol' }} </h3> -->

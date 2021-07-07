@@ -4,9 +4,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Animal } from 'src/app/shared/models/animal.model';
 import { Aplicacao } from 'src/app/shared/models/aplicacao.model';
+import { Lote } from 'src/app/shared/models/lote.model';
 import { Medicamento } from 'src/app/shared/models/medicamento.model';
 import { AnimalService } from 'src/app/shared/services/animal.service';
 import { AplicacaoService } from 'src/app/shared/services/aplicacao.service';
+import { LoteService } from 'src/app/shared/services/lote.service';
 import { MedicamentoService } from 'src/app/shared/services/medicamento.service';
 
 @Component({
@@ -19,11 +21,13 @@ export class CadastraAplicacaoComponent implements OnInit {
   form: FormGroup;
   animais: Animal[];
   medicamentos: Medicamento[];
+  lotes: Lote[];
 
   constructor(
               private animalService: AnimalService,
               private medicamentoService: MedicamentoService,
               private aplicacaoService: AplicacaoService,
+              private loteService: LoteService,
               private fb: FormBuilder,
               private snackBar: MatSnackBar,
               private router: Router
@@ -33,13 +37,15 @@ export class CadastraAplicacaoComponent implements OnInit {
     this.gerarForm();
     this.animalService.listaTodos().subscribe(res => this.animais = res);
     this.medicamentoService.listaMedicamentos().subscribe(res => this.medicamentos = res);
+    this.loteService.listaLotes().subscribe(res => this.lotes = res);
   }
 
   gerarForm() {
     this.form = this.fb.group({
       dataAplicacao:['', Validators.required],
       animal:[Validators.required],
-      medicamento:[Validators.required]
+      medicamento:[Validators.required],
+      lote:[Validators.required]
     });
   }
 
@@ -55,7 +61,7 @@ export class CadastraAplicacaoComponent implements OnInit {
         data => {
           const msg: string = "Aplicacao cadastrada com sucesso";
           this.snackBar.open(msg, "Sucesso", {duration : 3000});
-          this.router.navigate(['/home']);
+          this.router.navigate(['/lista-aplicacao']);
         },
         err => {
           let msg: string = "Tente novamente em instantes";

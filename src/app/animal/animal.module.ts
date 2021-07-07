@@ -18,6 +18,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule } from '@angular/material/select';
 import { ListaAnimalComponent } from './animais/lista-animal/lista-animal.component';
+import { HomeAnimalComponent } from './home-animal/home-animal.component';
+import { FichaAnimalComponent } from './animais/lista-animal/ficha-animal/ficha-animal.component';
+import { LancaPesoComponent } from './peso/lanca-peso/lanca-peso.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { ListaAnimalComponent } from './animais/lista-animal/lista-animal.compon
     CadastraAnimalComponent,
     CadastraRacaComponent,
     ListaRacaComponent,
-    ListaAnimalComponent
+    ListaAnimalComponent,
+    HomeAnimalComponent,
+    FichaAnimalComponent,
+    LancaPesoComponent
   ],
   imports: [
     CommonModule,

@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     
     const login: Login = this.form.value;
     login.ipUser = this.ipAddress;
-    console.log(login);
+
     this.loginService.logar(login)
       .subscribe(
         data => {

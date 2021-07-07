@@ -17,7 +17,7 @@ import { LoginModule, LoginRoutingModule } from './autenticacao';
 
 import { HomeRoutingModule } from './home/home-routing.module';
 import { HomeModule } from './home';
-import { AnimalRoutes, AnimalRoutingModule } from './animal/animal-routing.module';
+import { AnimalRoutingModule } from './animal/animal-routing.module';
 import { AnimalModule } from './animal/animal.module';
 import { PessoaModule } from './pessoa/pessoa.module';
 import { PessoaRoutingModule } from './pessoa/pessoa-routing.module';
@@ -25,6 +25,9 @@ import { CategoriaModule } from './categoria/categoria.module';
 import { CategoriaRoutingModule } from './categoria/categoria-routing.module';
 import { MedicinaModule } from './medicina/medicina.module';
 import { MedicinaRoutingModule } from './medicina/medicina-routing.module';
+import { CadastraVendaComponent } from './negocios/vendas/cadastra-venda/cadastra-venda.component';
+import { NegociosModule } from './negocios/negocios.module';
+import { NegociosRoutingModule } from './negocios/negocios-routing.module';
 
 registerLocaleData(localePtBr);
 
@@ -53,6 +56,8 @@ registerLocaleData(localePtBr);
     CategoriaRoutingModule,
     MedicinaModule,
     MedicinaRoutingModule,
+    NegociosModule,
+    NegociosRoutingModule,
     
     AppRoutingModule
   ],

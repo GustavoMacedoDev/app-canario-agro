@@ -1,0 +1,34 @@
+<h3 class="titulo">Ficha do Animal</h3>
+<h5>Animal: #{{ animal?.id }}</h5>
+<h5>Nome: {{ animal?.nome }} - Identificação: {{ animal?.identificacao }}</h5>
+<h5>Sexo: {{ animal?.sexo }}</h5>
+<h5>Data de Entrada: {{ animal?.dataEntrada | date:'dd/MM/yyyy'}}</h5>
+<h5>Peso de Entrada(kg): {{ animal?.pesoEntrada }}</h5>
+<h5>Peso Atual(kg): {{ animal?.pesoAtual }}</h5>
+<h5>Raça: {{ animal?.raca.nome }}</h5>
+<h5>Categoria: {{ animal?.categoria.nome }}</h5>
+<h5>Fornecedor: {{ animal?.fornecedor.documento }}</h5>
+<h5>Produtor: {{ animal?.fornecedor.documento }}</h5>
+
+<br>
+
+<h4>Registros de peso do animal</h4>
+<table class="striped table">
+    <tr>
+        <th>Data de Registro</th>
+        <th>Peso(kg)</th>
+        <th>Peso em Arroba</th>
+    </tr>
+    <tr *ngFor="let peso of pesos">
+        <td>{{ peso?.dataRegistro | date:'dd/MM/yyyy' }}</td>
+        <td>{{ peso?.peso }}</td>
+        <td>{{ peso?.peso / 15 }}</td>
+    </tr>
+</table>
+
+<button class="btn btn-primary" routerLink="{{ '/lanca-peso/' + animal?.id }}">
+    Lançar Peso
+</button>
+<button class="btn btn-primary" [routerLink]="['/lista-animal']">
+    Voltar
+</button>

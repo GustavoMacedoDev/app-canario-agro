@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Lote } from 'src/app/shared/models/lote.model';
+import { Medicamento } from 'src/app/shared/models/medicamento.model';
 import { LoteService } from 'src/app/shared/services/lote.service';
+import { MedicamentoService } from 'src/app/shared/services/medicamento.service';
 
 @Component({
   selector: 'app-cadastra-lote',
@@ -13,23 +15,27 @@ import { LoteService } from 'src/app/shared/services/lote.service';
 export class CadastraLoteComponent implements OnInit {
 
   form: FormGroup;
+  medicamentos: Medicamento[];
 
   constructor(
               private loteService: LoteService,
               private snackBar: MatSnackBar,
               private router: Router,
-              private fb: FormBuilder
+              private fb: FormBuilder,
+              private medicamentoService: MedicamentoService
   ) { }
 
   ngOnInit(): void {
     this.gerarForm();
+    this.medicamentoService.listaMedicamentos().subscribe(res => this.medicamentos = res);
   }
 
   gerarForm() {
     this.form = this.fb.group({
       lote:['', Validators.required],
       dataFabricacao:['', Validators.required],
-      dataValidade:['', Validators.required]
+      dataValidade:['', Validators.required],
+      medicamento:['', Validators.required]
     });
   }
 

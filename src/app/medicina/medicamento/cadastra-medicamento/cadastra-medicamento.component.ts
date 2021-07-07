@@ -49,7 +49,7 @@ export class CadastraMedicamentoComponent implements OnInit {
         data => {
           const msg: string = "Medicamento cadastrado com sucesso";
           this.snackBar.open(msg, "Sucesso", { duration: 3000 });
-          this.router.navigate(['/home']);
+          this.router.navigate(['/lista-medicamento']);
         },
         err => {
           let msg: string = "Tente novamente em instantes.";

@@ -1,0 +1,28 @@
+<div class="" *ngIf="items.length === 0">
+    <h4 class="text-center">
+      Não há itens no seu carrinho. 
+    </h4>
+  </div>
+  <div class="" *ngIf="items.length > 0">
+  
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Item</th>
+        <th class="text-right">Subtotal</th>
+        <th class="text-right">Remover</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{ item.animal.nome }}</td>
+  
+        <td class="text-right">{{item.value() | currency: 'BRL': 'symbol'}}</td>
+        <td class="text-right">
+          <a (click)="emitRemove(item)" class="btn btn-sm danger"><i class="fa fa-remove">-</i></a>
+        </td>
+      </tr>
+  
+      </tbody>
+    </table>
+  </div>

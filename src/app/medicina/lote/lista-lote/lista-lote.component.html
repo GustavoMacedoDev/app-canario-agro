@@ -8,6 +8,8 @@
             <th>Lote</th>
             <th>Data de Fabricação</th>
             <th>Data de Validade</th>
+            <th>Medicamento</th>
+            <th>Saldo</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +17,8 @@
             <td>{{ lote?.lote }}</td>
             <td>{{ lote?.dataFabricacao | date:'dd/MM/yyyy' }}</td>
             <td>{{ lote?.dataValidade | date:'dd/MM/yyyy' }}</td>
+            <td>{{ lote?.medicamento.nome }}</td>
+            <td>{{ lote?.saldo }}</td>
         </tr>
     </tbody>
 </table>
@@ -23,7 +27,7 @@
     <button class="btn btn-primary" [routerLink]="['/cadastra-lote']">
         Cadastrar Lote
     </button>
-    <button class="btn btn-primary" [routerLink]="['/home']">
+    <button class="btn btn-primary" [routerLink]="['/home-medicina']">
         Voltar
     </button>
 

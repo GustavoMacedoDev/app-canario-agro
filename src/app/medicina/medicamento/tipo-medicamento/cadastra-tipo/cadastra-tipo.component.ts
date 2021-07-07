@@ -46,7 +46,7 @@ export class CadastraTipoComponent implements OnInit {
         data => {
           const msg: string = "Tipo cadastrado com sucesso";
           this.snackBar.open(msg, "Sucesso", { duration: 3000 });
-          this.router.navigate(['/home']);
+          this.router.navigate(['/lista-tipo']);
         },
         err => {
           let msg: string = "Tente novamente em instantes.";

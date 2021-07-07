@@ -22,11 +22,21 @@ import { CadastraAplicacaoComponent } from './aplicacao/cadastra-aplicacao/cadas
 import { ListaAplicacaoComponent } from './aplicacao/lista-aplicacao/lista-aplicacao.component';
 import { CadastraLoteComponent } from './lote/cadastra-lote/cadastra-lote.component';
 import { ListaLoteComponent } from './lote/lista-lote/lista-lote.component';
+import { HomeComponent } from './home/home.component';
+import { EntradaComponent } from './medicamento/entrada/entrada.component';
+import { MovimentacaoComponent } from './medicamento/movimentacao/movimentacao.component';
 
 
 
 @NgModule({
-  declarations: [ CadastraTipoComponent, ListaTipoComponent, CadastraMedicamentoComponent, ListaMedicamentoComponent, CadastraAplicacaoComponent, ListaAplicacaoComponent, CadastraLoteComponent, ListaLoteComponent],
+  declarations: [ 
+    CadastraTipoComponent, 
+    ListaTipoComponent, 
+    CadastraMedicamentoComponent, 
+    ListaMedicamentoComponent, 
+    CadastraAplicacaoComponent, 
+    ListaAplicacaoComponent, 
+    CadastraLoteComponent, ListaLoteComponent, HomeComponent, EntradaComponent, MovimentacaoComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

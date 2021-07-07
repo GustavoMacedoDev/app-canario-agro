@@ -1,0 +1,36 @@
+<div class="report">
+
+    <div class="titulo">
+        <h2>Venda</h2>
+    </div>
+    
+    <strong>
+        Código da Venda: {{ venda?.idVenda }} <br>
+        Cliente: {{ venda?.pessoa.nome }} <br>
+    Data da Venda: {{ venda?.dataVenda }}
+</strong>
+<table class="striped table">
+    <thead>
+        <tr>
+            <th>Animal</th>
+            <th>Valor Animal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let v of venda?.itens">
+            <td>{{ v?.animal.nome }}</td>
+            <td>{{ v?.valorItem | currency: 'BRL': 'symbol' }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>Valor Total da Venda {{ venda?.totalVenda  | currency: 'BRL': 'symbol' }}</h3>
+<div class="jumbotron jumbotron-fluid">
+    <button class="btn btn-primary" [routerLink]="['/home-negocios']">
+        Voltar
+    </button>
+
+</div>
+<button class="btn btn-primary" (click)="imprimir()" >Imprimir</button>
+
+</div>

@@ -7,8 +7,8 @@
             <th>Nome</th>
             <th>Raça</th>
             <th>Sexo</th>
-            <th>Data de Nascimento</th>
             <th>Produtor</th>
+            <th>Ficha</th>
         </tr>
     </thead>
     <tbody>
@@ -16,8 +16,10 @@
             <td>{{ animal?.nome }}</td>
             <td>{{ animal?.raca.nome }}</td>
             <td>{{ animal?.sexo }}</td>
-            <td>{{ animal?.dataNascimento | date:'dd/MM/yyyy' }}</td>
             <td>{{ animal?.produtor.nome }}</td>
+            <td><a routerLink="{{ '/ficha-animal/' + animal?.id }}">
+                <i class="fa fa-edit"></i>Ver
+            </a> </td>
         </tr>
     </tbody>
 </table>
@@ -26,7 +28,7 @@
     <button class="btn btn-primary" [routerLink]="['/cadastra-animal']">
         Cadastrar Animal
     </button>
-    <button class="btn btn-primary" [routerLink]="['/home']">
+    <button class="btn btn-primary" [routerLink]="['/home-animal']">
         Voltar
     </button>
 

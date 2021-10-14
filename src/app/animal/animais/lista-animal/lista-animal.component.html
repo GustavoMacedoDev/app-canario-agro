@@ -1,5 +1,5 @@
 <div class="titulo">
-    <h2>Lista de Animais</h2>
+    <h2>Lista de Animais em estoque</h2>
 </div>
 <table class="striped table">
     <thead>
@@ -8,18 +8,28 @@
             <th>Raça</th>
             <th>Sexo</th>
             <th>Produtor</th>
+            <th>Status</th>
+            <th>Editar</th>
             <th>Ficha</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let animal of animais">
+        <tr *ngFor="let animal of animaisEmEstoque">
             <td>{{ animal?.nome }}</td>
             <td>{{ animal?.raca.nome }}</td>
             <td>{{ animal?.sexo }}</td>
             <td>{{ animal?.produtor.nome }}</td>
+            <td>{{ animal?.status }}</td>
+            <td><a routerLink="{{ '/edita-animal/' + animal?.id }}">
+                <i class="fa fa-edit"></i>
+                Editar
+            </a> 
+            </td>
             <td><a routerLink="{{ '/ficha-animal/' + animal?.id }}">
-                <i class="fa fa-edit"></i>Ver
-            </a> </td>
+                    <i class="fa fa-edit"></i>
+                    Ver
+                </a> 
+            </td>
         </tr>
     </tbody>
 </table>
@@ -33,3 +43,29 @@
     </button>
 
 </div>
+
+<div class="titulo">
+    <h2>Lista de Animais Vendidos</h2>
+</div>
+<table class="striped table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Raça</th>
+            <th>Sexo</th>
+            <th>Produtor</th>
+            <th>Ficha</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let animal of animaisVendidos">
+            <td>{{ animal?.nome }}</td>
+            <td>{{ animal?.raca.nome }}</td>
+            <td>{{ animal?.sexo }}</td>
+            <td>{{ animal?.produtor.nome }}</td>
+            <td><a routerLink="{{ '/ficha-animal/' + animal?.id }}">
+                <i class="fa fa-edit"></i>Ver
+            </a> </td>
+        </tr>
+    </tbody>
+</table>

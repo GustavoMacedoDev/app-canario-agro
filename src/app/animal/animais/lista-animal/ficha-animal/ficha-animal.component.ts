@@ -12,8 +12,8 @@ import { PesoService } from 'src/app/shared/services/peso.service';
 })
 export class FichaAnimalComponent implements OnInit {
 
-  animal: Animal;
   idAnimal: string;
+  animal: Animal;
   pesos: Peso[];
 
   constructor(

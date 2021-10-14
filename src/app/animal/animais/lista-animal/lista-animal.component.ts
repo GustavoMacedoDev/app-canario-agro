@@ -9,15 +9,25 @@ import { AnimalService } from 'src/app/shared/services/animal.service';
 })
 export class ListaAnimalComponent implements OnInit {
 
-  animais: Animal[];
+  animaisEmEstoque: Animal[];
+  animaisVendidos: Animal[];
 
   constructor(
             private animalService: AnimalService
   ) { }
 
   ngOnInit(): void {
-    this.animalService.listaTodos()
-    .subscribe(res => this.animais = res);
+    this.buscaAnimaisEmEstoque();
+    this.buscaAnimaisVendidos();
+  }
+  
+  buscaAnimaisEmEstoque() {
+    this.animalService.listaEmEstoque()
+    .subscribe(res => this.animaisEmEstoque = res);
   }
 
+  buscaAnimaisVendidos() {
+    this.animalService.listaByStatus('VENDIDO')
+    .subscribe(res => this.animaisVendidos = res);
+  }
 }

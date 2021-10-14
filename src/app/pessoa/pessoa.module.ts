@@ -13,14 +13,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomePessoaComponent } from './home-pessoa/home-pessoa.component';
 import { CadastraPessoaComponent } from './pessoas/cadastra-pessoa/cadastra-pessoa.component';
 import { ListaPessoaComponent } from './pessoas/lista-pessoa/lista-pessoa.component';
-
-
+import { CadastraPessoaModalComponent } from './pessoas/cadastra-pessoa/cadastra-pessoa-modal/cadastra-pessoa-modal.component';
 
 @NgModule({
   declarations: [
     HomePessoaComponent,
     CadastraPessoaComponent,
-    ListaPessoaComponent
+    ListaPessoaComponent,
+    CadastraPessoaModalComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +34,9 @@ import { ListaPessoaComponent } from './pessoas/lista-pessoa/lista-pessoa.compon
     MatTooltipModule,
     MatIconModule,
     MatSnackBarModule
+  ],
+  exports: [
+     CadastraPessoaModalComponent
   ]
 })
 export class PessoaModule { }

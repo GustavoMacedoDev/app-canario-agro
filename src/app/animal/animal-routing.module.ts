@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastraAnimalComponent } from './animais/cadastra-animal/cadastra-animal.component';
+import { EditaAnimalComponent } from './animais/edita-animal/edita-animal.component';
 import { FichaAnimalComponent } from './animais/lista-animal/ficha-animal/ficha-animal.component';
 import { ListaAnimalComponent } from './animais/lista-animal/lista-animal.component';
 import { HomeAnimalComponent } from './home-animal/home-animal.component';
@@ -36,6 +37,10 @@ export const AnimalRoutes: Routes = [
 	{
 		path: 'lanca-peso/:id',
 		component: LancaPesoComponent
+	},
+	{
+		path: 'edita-animal/:id',
+		component: EditaAnimalComponent
 	}
 ];
 

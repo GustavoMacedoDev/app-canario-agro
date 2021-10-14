@@ -21,6 +21,11 @@ import { ListaAnimalComponent } from './animais/lista-animal/lista-animal.compon
 import { HomeAnimalComponent } from './home-animal/home-animal.component';
 import { FichaAnimalComponent } from './animais/lista-animal/ficha-animal/ficha-animal.component';
 import { LancaPesoComponent } from './peso/lanca-peso/lanca-peso.component';
+import { CadastraPessoaComponent } from '../pessoa/pessoas/cadastra-pessoa/cadastra-pessoa.component';
+import { PessoaModule } from '../pessoa/pessoa.module';
+import { CadastraRacaModalComponent } from './racas/cadastra-raca/cadastra-raca-modal/cadastra-raca-modal.component';
+import { CategoriaModule } from '../categoria/categoria.module';
+import { EditaAnimalComponent } from './animais/edita-animal/edita-animal.component';
 
 
 @NgModule({
@@ -31,7 +36,9 @@ import { LancaPesoComponent } from './peso/lanca-peso/lanca-peso.component';
     ListaAnimalComponent,
     HomeAnimalComponent,
     FichaAnimalComponent,
-    LancaPesoComponent
+    LancaPesoComponent,
+    CadastraRacaModalComponent,
+    EditaAnimalComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +56,9 @@ import { LancaPesoComponent } from './peso/lanca-peso/lanca-peso.component';
     MatIconModule,
     MatSnackBarModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    PessoaModule,
+    CategoriaModule
   ]
 })
 export class AnimalModule { }

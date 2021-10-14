@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/shared/models/categoria.model';
 import { CategoriaService } from 'src/app/shared/services/categoria.service';
 
 @Component({
-  selector: 'app-cadastra-categoria',
-  templateUrl: './cadastra-categoria.component.html',
-  styleUrls: ['./cadastra-categoria.component.css']
+  selector: 'app-cadastra-categoria-modal',
+  templateUrl: './cadastra-categoria-modal.component.html',
+  styleUrls: ['./cadastra-categoria-modal.component.css']
 })
-export class CadastraCategoriaComponent implements OnInit {
+export class CadastraCategoriaModalComponent implements OnInit {
 
   form: FormGroup;
   categoria: Categoria;
@@ -44,21 +44,17 @@ export class CadastraCategoriaComponent implements OnInit {
       data => {
         const msg : string = "Categoria cadastrada com sucesso";
         this.snackBar.open(msg, "Sucesso", { duration: 3000});
-        this.router.navigate(['/lista-categoria']);
-
       },
       err => {
         let msg : string = "Tente novamente em instantes.";
         if (err.status == 400) {
           msg = err.error.errors.join(' ');
         }
-        if (err.status == 500) {
-          msg = "Categoria já cadastrada!"
-        }
         this.snackBar.open(msg, "Erro", { duration: 5000 });
       }
     );
   return false;
   }
+
 
 }

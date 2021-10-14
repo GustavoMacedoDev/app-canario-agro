@@ -12,13 +12,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
+import { CadastraCategoriaModalComponent } from './cadastra-categoria/cadastra-categoria-modal/cadastra-categoria-modal.component';
 
 
 
 @NgModule({
   declarations: [
     CadastraCategoriaComponent, 
-    ListaCategoriaComponent
+    ListaCategoriaComponent, CadastraCategoriaModalComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +33,9 @@ import { RouterModule } from '@angular/router';
     MatTooltipModule,
     MatIconModule,
     MatSnackBarModule
+  ],
+  exports: [
+    CadastraCategoriaModalComponent
   ]
 })
 export class CategoriaModule { }

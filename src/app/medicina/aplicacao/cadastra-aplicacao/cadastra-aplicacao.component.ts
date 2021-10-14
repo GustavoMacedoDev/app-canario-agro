@@ -35,7 +35,7 @@ export class CadastraAplicacaoComponent implements OnInit {
 
   ngOnInit(): void {
     this.gerarForm();
-    this.animalService.listaTodos().subscribe(res => this.animais = res);
+    this.animalService.listaEmEstoque().subscribe(res => this.animais = res);
     this.medicamentoService.listaMedicamentos().subscribe(res => this.medicamentos = res);
     this.loteService.listaLotes().subscribe(res => this.lotes = res);
   }

@@ -36,8 +36,8 @@
               <th>{{ item.animal.nome }}</th>
               <th>{{ item.animal.pesoAtual }}</th>
               <th>{{ item.animal.pesoAtual  / 15 }}</th>
-              <th>{{  arroba?.valor  | currency: 'BRL': 'symbol' }}</th>
-              <th>{{ arroba?.valor * (item.animal.pesoAtual / 15)  | currency: 'BRL': 'symbol' }}</th>
+              <th>{{ item.valorArroba  | currency: 'BRL': 'symbol' }}</th>
+              <th>{{ item.valorArroba * (item.animal.pesoAtual / 15)  | currency: 'BRL': 'symbol' }}</th>
             </tr>
             
           </tbody></table>

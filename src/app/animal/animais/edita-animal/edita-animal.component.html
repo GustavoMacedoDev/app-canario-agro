@@ -1,0 +1,194 @@
+<!-- <ng-template #contentPessoa let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Produtor</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-cadastra-pessoa-modal></app-cadastra-pessoa-modal>
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" 
+        (click)="buscaProdutores(); d('Cross click')">
+        Fechar
+      </button>
+    </div>
+  </ng-template>
+  
+  <ng-template #contentRaca let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Raça</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-cadastra-raca-modal></app-cadastra-raca-modal>
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" 
+        (click)="buscaRacas(); d('Cross click')">
+        Fechar
+      </button>
+    </div>
+  </ng-template>
+  
+  <ng-template #contentCategoria let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Categoria</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-cadastra-categoria-modal></app-cadastra-categoria-modal>
+    </div>
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" 
+        (click)="buscaCategorias(); d('Cross click')">
+        Fechar
+      </button>
+    </div>
+  </ng-template> -->
+
+  {{ animal?.nome }} 
+  
+  <div class="titulo">
+    <h2>Alteração de dados do Animal</h2>
+  </div>
+  <form [formGroup]="form" fxLayoutAlign="center" novalidate>
+      <mat-list>
+        <mat-list-item>
+          <mat-form-field>
+            <input matInput placeholder="Nome"
+                formControlName="nome">
+          </mat-form-field>
+        </mat-list-item>
+        <!-- <mat-list-item>
+          <mat-form-field>
+            <input matInput placeholder="Data de Entrada"
+                formControlName="dataEntrada" type="date">
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <input matInput placeholder="Data de Nascimento"
+                formControlName="dataNascimento" type="date">
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <input matInput placeholder="Peso de Entrada(KG)"
+                formControlName="pesoEntrada" type="number">
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <input matInput placeholder="Identificação"
+                formControlName="identificacao">
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>Sexo</mat-label>
+            <mat-select placeholder="Sexo" formControlName="sexo">
+              <mat-option value="MACHO">
+                MACHO
+              </mat-option>
+              <mat-option value="FEMEA">
+                FEMEA
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select placeholder="Status" formControlName="status">
+              <mat-option value="VENDIDO">
+                VENDIDO
+              </mat-option>
+              <mat-option value="DISPONIVEL">
+                DISPONIVEL
+              </mat-option>
+              <mat-option value="BLOQUEADO">
+                BLOQUEADO
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>Produtor</mat-label>
+            <mat-select placeholder="Produtores" formControlName="produtor">
+              <mat-option   
+                *ngFor="let produtor of produtores" [value]="produtor">
+                {{ produtor?.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary"
+              (click)="openPessoa(contentPessoa)">
+              +
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>Fornecedor</mat-label>
+            <mat-select placeholder="Fornecedor" formControlName="fornecedor">
+              <mat-option   
+                *ngFor="let fornecedor of fornecedores" [value]="fornecedor">
+                {{ fornecedor?.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary"
+              (click)="openPessoa(contentPessoa)">
+              +
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>Raça</mat-label>
+            <mat-select placeholder="Raça" formControlName="raca">
+              <mat-option   
+                *ngFor="let raca of racas" [value]="raca">
+                {{ raca?.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary"
+              (click)="openRaca(contentRaca)">
+              +
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>Categoria</mat-label>
+            <mat-select placeholder="Categoria" formControlName="categoria">
+              <mat-option   
+                *ngFor="let categoria of categorias" [value]="categoria">
+                {{ categoria?.nome }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary"
+              (click)="openCategoria(contentCategoria)">
+              +
+          </button>
+        </mat-list-item>
+        <mat-list-item fxLayoutAlign="center">
+          <button mat-raised-button color="primary"
+              [disabled]="form.invalid" (click)="cadastrarAnimal()">
+              Cadastrar
+          </button>
+          &nbsp;
+          <a mat-raised-button routerLink="/lista-animal">Voltar</a>
+        </mat-list-item> -->
+      </mat-list>
+    </form>
+    

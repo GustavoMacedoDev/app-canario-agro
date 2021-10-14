@@ -11,7 +11,10 @@ export class Animal {
         public fornecedor: string,
         public raca: string,
         public categoria: string,
-        public sexo: string
+        public sexo: string,
+		public status: string,
+		public mae: string,
+		public pai: string
 
 		) {}
 

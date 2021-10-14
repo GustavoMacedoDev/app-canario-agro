@@ -12,8 +12,9 @@ import { HttpUtilService } from './http-util.service';
 export class AnimalService {
 
   private readonly PATHCADASTRO: string = 'animal/cadastra';
-  private readonly PATHLISTATODOS: string = 'animal/animais';
-  private readonly PATHLISTAEMESTOQUE: string = 'animal/animaisemestoque';
+  private readonly PATHLISTABYSTATUS: string = 'animal/status/';
+  private readonly PATHLISTABYSEXO: string = 'animal/sexo/';
+  private readonly PATHLISTAEMESTOQUE: string = 'animal/animaisemestoque/';
   private readonly PATHLISTABYID: string = 'animal/';
 
   constructor(public httpClient: HttpClient, 
@@ -26,8 +27,12 @@ export class AnimalService {
     return this.httpClient.post(env.baseUrl + this.PATHCADASTRO, animal, this.httpUtil.headers());
   }
 
-  listaTodos() : Observable<any> {
-    return this.httpClient.get(env.baseUrl + this.PATHLISTATODOS, this.httpUtil.headers());
+  listaByStatus(status: any) : Observable<any> {
+    return this.httpClient.get(env.baseUrl + this.PATHLISTABYSTATUS + status, this.httpUtil.headers());
+  }
+
+  listaBySexo(sexo: any) : Observable<any> {
+    return this.httpClient.get(env.baseUrl + this.PATHLISTABYSEXO + sexo, this.httpUtil.headers());
   }
 
   listaEmEstoque() : Observable<any> {

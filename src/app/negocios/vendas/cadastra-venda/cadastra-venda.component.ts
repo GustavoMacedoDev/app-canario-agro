@@ -39,8 +39,8 @@ export class CadastraVendaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.animalService.listaEmEstoque().subscribe(res => this.animais = res);
-    this.arrobaService.listaArroba(1).subscribe(res => this.arroba = res);
+    this.animalService.listaByStatus('DISPONIVEL').subscribe(res => this.animais = res);
+    //this.arrobaService.listaArroba(1).subscribe(res => this.arroba = res);
   }
 
 
